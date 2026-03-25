@@ -1,0 +1,44 @@
+{
+  "partners": [
+    {
+      "id": "partner-1",
+      "name": "NABARD Rural Mobility Cell",
+      "partnerType": "NGO",
+      "lat": 28.6139,
+      "lon": 77.209,
+      "coverageStates": ["Delhi", "Haryana", "Punjab", "Uttar Pradesh"]
+    },
+    {
+      "id": "partner-2",
+      "name": "Krishi Logistics Federation",
+      "partnerType": "Agency",
+      "lat": 22.7196,
+      "lon": 75.8577,
+      "coverageStates": ["Madhya Pradesh", "Maharashtra", "Gujarat"]
+    },
+    {
+      "id": "partner-3",
+      "name": "AgriServe East Distribution Trust",
+      "partnerType": "NGO",
+      "lat": 22.5726,
+      "lon": 88.3639,
+      "coverageStates": ["West Bengal", "Odisha", "Bihar", "Jharkhand"]
+    },
+    {
+      "id": "partner-4",
+      "name": "South Farm Cargo Collective",
+      "partnerType": "Agency",
+      "lat": 13.0827,
+      "lon": 80.2707,
+      "coverageStates": ["Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh", "Telangana"]
+    },
+    {
+      "id": "partner-5",
+      "name": "North-East Crop Transit Mission",
+      "partnerType": "NGO",
+      "lat": 26.1445,
+      "lon": 91.7362,
+      "coverageStates": ["Assam", "Meghalaya", "Manipur", "Tripura"]
+    }
+  ]
+}

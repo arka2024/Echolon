@@ -1,0 +1,142 @@
+{
+  "buyers": [
+    {
+      "id": "buyer-1",
+      "companyName": "Adani Wilmar Procurement",
+      "region": "West",
+      "state": "Gujarat",
+      "city": "Mundra",
+      "buyerType": "Refinery",
+      "pricePerTonInr": 52750,
+      "trustIndex": 9.3,
+      "rating": 4.8,
+      "capacityTonsPerWeek": 12000,
+      "minimumOrderTons": 45,
+      "preferredOilTypes": ["Palm", "Mustard", "Soybean"],
+      "qualityFocus": "Low moisture, FFA below benchmark",
+      "responseTimeHours": 8,
+      "directContact": {
+        "enabled": true,
+        "minimumLargeQtyTons": 120,
+        "phone": "+91-79-4000-1000",
+        "email": "procurement-west@adaniwilmar.in",
+        "website": "https://www.adaniwilmar.com"
+      }
+    },
+    {
+      "id": "buyer-2",
+      "companyName": "Ruchi Soya Industrial Buyers",
+      "region": "Central",
+      "state": "Madhya Pradesh",
+      "city": "Indore",
+      "buyerType": "Bulk Trader",
+      "pricePerTonInr": 51890,
+      "trustIndex": 8.9,
+      "rating": 4.5,
+      "capacityTonsPerWeek": 9600,
+      "minimumOrderTons": 35,
+      "preferredOilTypes": ["Palm", "Soybean"],
+      "qualityFocus": "Consistent grading and traceability",
+      "responseTimeHours": 10,
+      "directContact": {
+        "enabled": true,
+        "minimumLargeQtyTons": 100,
+        "phone": "+91-731-4300-220",
+        "email": "sourcing.central@ruchigroup.in",
+        "website": "https://www.patanjaliayurved.org"
+      }
+    },
+    {
+      "id": "buyer-3",
+      "companyName": "Gemini Edibles & Fats",
+      "region": "South",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "buyerType": "Refinery",
+      "pricePerTonInr": 53340,
+      "trustIndex": 9.1,
+      "rating": 4.7,
+      "capacityTonsPerWeek": 8400,
+      "minimumOrderTons": 30,
+      "preferredOilTypes": ["Palm", "Sunflower"],
+      "qualityFocus": "Industrial-grade edible oil consistency",
+      "responseTimeHours": 7,
+      "directContact": {
+        "enabled": true,
+        "minimumLargeQtyTons": 90,
+        "phone": "+91-40-4456-7800",
+        "email": "contracts@gemini-edibles.com",
+        "website": "https://www.gemini-edibles.com"
+      }
+    },
+    {
+      "id": "buyer-4",
+      "companyName": "Patanjali Food Chain Sourcing",
+      "region": "North",
+      "state": "Uttarakhand",
+      "city": "Haridwar",
+      "buyerType": "FMCG",
+      "pricePerTonInr": 50980,
+      "trustIndex": 8.5,
+      "rating": 4.3,
+      "capacityTonsPerWeek": 6700,
+      "minimumOrderTons": 25,
+      "preferredOilTypes": ["Mustard", "Palm", "Rice Bran"],
+      "qualityFocus": "Batch consistency and certified sourcing",
+      "responseTimeHours": 14,
+      "directContact": {
+        "enabled": false,
+        "minimumLargeQtyTons": 150,
+        "phone": "+91-1334-240000",
+        "email": "buyerdesk@patanjalifoods.in",
+        "website": "https://www.patanjalifoods.com"
+      }
+    },
+    {
+      "id": "buyer-5",
+      "companyName": "Emami Agrotech Procurement",
+      "region": "East",
+      "state": "West Bengal",
+      "city": "Haldia",
+      "buyerType": "Refinery",
+      "pricePerTonInr": 52300,
+      "trustIndex": 8.8,
+      "rating": 4.4,
+      "capacityTonsPerWeek": 7400,
+      "minimumOrderTons": 28,
+      "preferredOilTypes": ["Palm", "Rice Bran"],
+      "qualityFocus": "Refinery-ready high-volume intake",
+      "responseTimeHours": 11,
+      "directContact": {
+        "enabled": true,
+        "minimumLargeQtyTons": 110,
+        "phone": "+91-33-6613-6200",
+        "email": "bulk.buyers@emamiagrotech.in",
+        "website": "https://www.emamigroup.com"
+      }
+    },
+    {
+      "id": "buyer-6",
+      "companyName": "Aakar Agro Oils Network",
+      "region": "South",
+      "state": "Karnataka",
+      "city": "Mangaluru",
+      "buyerType": "Export",
+      "pricePerTonInr": 54120,
+      "trustIndex": 9.0,
+      "rating": 4.6,
+      "capacityTonsPerWeek": 6900,
+      "minimumOrderTons": 40,
+      "preferredOilTypes": ["Palm", "Coconut"],
+      "qualityFocus": "Export-ready quality and dispatch speed",
+      "responseTimeHours": 6,
+      "directContact": {
+        "enabled": true,
+        "minimumLargeQtyTons": 85,
+        "phone": "+91-824-403-1800",
+        "email": "large.deals@aakaragro.in",
+        "website": "https://www.aakaragro.com"
+      }
+    }
+  ]
+}
