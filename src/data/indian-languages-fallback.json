@@ -1,0 +1,95 @@
+{
+  "languages": [
+    {
+      "code": "hi",
+      "englishName": "Hindi",
+      "nativeName": "हिन्दी",
+      "regionCoverage": "North and Central India",
+      "speakersRank": 1
+    },
+    {
+      "code": "bn",
+      "englishName": "Bengali",
+      "nativeName": "বাংলা",
+      "regionCoverage": "West Bengal and Tripura",
+      "speakersRank": 2
+    },
+    {
+      "code": "mr",
+      "englishName": "Marathi",
+      "nativeName": "मराठी",
+      "regionCoverage": "Maharashtra",
+      "speakersRank": 3
+    },
+    {
+      "code": "te",
+      "englishName": "Telugu",
+      "nativeName": "తెలుగు",
+      "regionCoverage": "Andhra Pradesh and Telangana",
+      "speakersRank": 4
+    },
+    {
+      "code": "ta",
+      "englishName": "Tamil",
+      "nativeName": "தமிழ்",
+      "regionCoverage": "Tamil Nadu",
+      "speakersRank": 5
+    },
+    {
+      "code": "gu",
+      "englishName": "Gujarati",
+      "nativeName": "ગુજરાતી",
+      "regionCoverage": "Gujarat",
+      "speakersRank": 6
+    },
+    {
+      "code": "ur",
+      "englishName": "Urdu",
+      "nativeName": "اردو",
+      "regionCoverage": "Pan India urban clusters",
+      "speakersRank": 7
+    },
+    {
+      "code": "kn",
+      "englishName": "Kannada",
+      "nativeName": "ಕನ್ನಡ",
+      "regionCoverage": "Karnataka",
+      "speakersRank": 8
+    },
+    {
+      "code": "ml",
+      "englishName": "Malayalam",
+      "nativeName": "മലയാളം",
+      "regionCoverage": "Kerala",
+      "speakersRank": 9
+    },
+    {
+      "code": "pa",
+      "englishName": "Punjabi",
+      "nativeName": "ਪੰਜਾਬੀ",
+      "regionCoverage": "Punjab",
+      "speakersRank": 10
+    },
+    {
+      "code": "or",
+      "englishName": "Odia",
+      "nativeName": "ଓଡ଼ିଆ",
+      "regionCoverage": "Odisha",
+      "speakersRank": 11
+    },
+    {
+      "code": "as",
+      "englishName": "Assamese",
+      "nativeName": "অসমীয়া",
+      "regionCoverage": "Assam",
+      "speakersRank": 12
+    },
+    {
+      "code": "en",
+      "englishName": "English",
+      "nativeName": "English",
+      "regionCoverage": "Pan India",
+      "speakersRank": 13
+    }
+  ]
+}

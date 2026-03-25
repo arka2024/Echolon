@@ -4,10 +4,13 @@ import { Suspense, lazy, useState } from 'react';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { motion } from 'framer-motion';
 import { Calculator, TrendingUp, DollarSign, Building, AlertCircle } from 'lucide-react';
+import { useLanguage } from '@/components/LanguageProvider';
 
 const FinanceScene = lazy(() => import('@/components/3d/FinanceScene').then(mod => ({ default: mod.FinanceScene })));
 
 export default function FinancePage() {
+  const { language } = useLanguage();
+  const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
   const [hectares, setHectares] = useState(42.5);
   const [yieldTons, setYieldTons] = useState(1280);
 
@@ -17,8 +20,8 @@ export default function FinancePage() {
         
         {/* Header */}
         <div className="pb-4 border-b border-white/10">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground">Income Prediction & Finance</h1>
-          <p className="text-muted-foreground mt-1">Simulate land yield vs projected market value.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground">{tx('Income Prediction & Finance', 'आय पूर्वानुमान और वित्त', 'আয় পূর্বাভাস ও অর্থায়ন')}</h1>
+          <p className="text-muted-foreground mt-1">{tx('Simulate land yield vs projected market value.', 'भूमि उपज बनाम अनुमानित बाज़ार मूल्य का सिमुलेशन करें।', 'জমির ফলন বনাম সম্ভাব্য বাজারমূল্য সিমুলেট করুন।')}</p>
         </div>
 
         {/* Main Split Layout */}
@@ -31,9 +34,9 @@ export default function FinancePage() {
               animate={{ opacity: 1, x: 0 }}
               className="glass-panel p-8 rounded-2xl h-full flex flex-col"
             >
-              <h3 className="text-xs font-bold tracking-widest text-primary uppercase mb-2">Projection Tool</h3>
-              <h2 className="text-4xl font-bold tracking-tight mb-8">Financial Growth Calculator</h2>
-              <p className="text-muted-foreground mb-8">Analyze the yield potential and economic viability of your arboretum expansion.</p>
+              <h3 className="text-xs font-bold tracking-widest text-primary uppercase mb-2">{tx('Projection Tool', 'प्रोजेक्शन टूल', 'প্রজেকশন টুল')}</h3>
+              <h2 className="text-4xl font-bold tracking-tight mb-8">{tx('Financial Growth Calculator', 'वित्तीय विकास कैलकुलेटर', 'আর্থিক বৃদ্ধির ক্যালকুলেটর')}</h2>
+              <p className="text-muted-foreground mb-8">{tx('Analyze the yield potential and economic viability of your arboretum expansion.', 'अपनी कृषि विस्तार की उपज क्षमता और आर्थिक व्यवहार्यता का विश्लेषण करें।', 'আপনার কৃষি সম্প্রসারণের ফলন সম্ভাবনা ও অর্থনৈতিক সক্ষমতা বিশ্লেষণ করুন।')}</p>
 
               <div className="space-y-8 flex-grow">
                 {/* Sliders */}
@@ -88,7 +91,7 @@ export default function FinancePage() {
 
               <button className="w-full py-4 mt-8 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl flex items-center justify-center space-x-2 transition-all shadow-lg shadow-primary/20">
                 <TrendingUp className="w-5 h-5" />
-                <span>Recalculate Model</span>
+                <span>{tx('Recalculate Model', 'मॉडल पुनर्गणना करें', 'মডেল পুনর্গণনা করুন')}</span>
               </button>
             </motion.div>
           </div>

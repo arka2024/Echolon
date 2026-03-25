@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Noto_Sans, Noto_Sans_Bengali, Noto_Sans_Devanagari } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { ChatbotWidget } from '@/components/ChatbotWidget';
+import { LanguageProvider } from '@/components/LanguageProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const notoSans = Noto_Sans({ subsets: ['latin'], variable: '--font-noto' });
+const notoBengali = Noto_Sans_Bengali({ subsets: ['bengali'], variable: '--font-bn' });
+const notoDevanagari = Noto_Sans_Devanagari({ subsets: ['devanagari'], variable: '--font-hi' });
 
 export const metadata: Metadata = {
   title: 'PalmArbor | Precision Oil Palm Agriculture',
@@ -18,13 +23,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="antialiased">
-      <body className={inter.className}>
-        <Navbar />
-        {/* We add a padding top to avoid content hiding behind the fixed navbar */}
-        <main className="pt-16 lg:pt-20 min-h-screen">
-          {children}
-        </main>
-        <Footer />
+      <body className={`${inter.variable} ${notoSans.variable} ${notoBengali.variable} ${notoDevanagari.variable}`}>
+        <LanguageProvider>
+          <Navbar />
+          {/* We add a padding top to avoid content hiding behind the fixed navbar */}
+          <main className="pt-16 lg:pt-20 min-h-screen">
+            {children}
+          </main>
+          <ChatbotWidget />
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

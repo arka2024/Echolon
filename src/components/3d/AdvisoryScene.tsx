@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Environment, ContactShadows } from '@react-three/drei';
+import { OrbitControls, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface AdvisorySceneProps {
@@ -83,25 +83,15 @@ function PlantModel({ cropStage }: AdvisorySceneProps) {
 
 export function AdvisoryScene({ cropStage }: AdvisorySceneProps) {
   return (
-    <Canvas shadows camera={{ position: [3, 2, 4], fov: 50 }} className="w-full h-full bg-[#111]">
+    <Canvas camera={{ position: [3, 2, 4], fov: 50 }} className="w-full h-full bg-[#111]">
       <ambientLight intensity={0.6} />
       <directionalLight 
-        castShadow 
         position={[2, 5, 2]} 
         intensity={2} 
-        shadow-mapSize={[1024, 1024]} 
       />
       <pointLight position={[-2, 2, -2]} intensity={0.5} color="#4CAF50" />
       
       <PlantModel cropStage={cropStage} />
-      
-      <ContactShadows 
-        position={[0, -1.01, 0]} 
-        opacity={0.8} 
-        scale={5} 
-        blur={2} 
-        far={4} 
-      />
 
       <OrbitControls 
         enablePan={false}

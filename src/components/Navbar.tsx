@@ -6,22 +6,25 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Leaf, Menu, X, ChevronDown, Bell, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/components/LanguageProvider';
 
 const navItems = [
-  { name: 'Advisory', href: '/advisory' },
-  { name: 'Finance', href: '/finance' },
-  { name: 'Market', href: '/market' },
-  { name: 'Community', href: '/community' },
-  { name: 'Sustainability', href: '/sustainability' },
-  { name: 'Contact', href: '/contact' },
+  { key: 'nav.advisory', href: '/advisory' },
+  { key: 'nav.finance', href: '/finance' },
+  { key: 'nav.market', href: '/market' },
+  { key: 'nav.community', href: '/community' },
+  { key: 'nav.sustainability', href: '/sustainability' },
+  { key: 'nav.contact', href: '/contact' },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   // Hide Navbar on the intro/login and signup pages
-  if (pathname === '/' || pathname === '/signup') {
+  if (pathname === '/' || pathname === '/signup' || pathname.startsWith('/buyer')) {
     return null;
   }
 
@@ -41,14 +44,14 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
             {navItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.key}
                 href={item.href}
                 className={cn(
                   "relative px-3 py-2 text-sm font-medium rounded-md transition-colors hover:text-primary",
                   pathname === item.href ? "text-primary" : "text-muted-foreground"
                 )}
               >
-                {item.name}
+                {t(item.key)}
                 {pathname === item.href && (
                   <motion.div
                     layoutId="navbar-indicator"
@@ -63,6 +66,7 @@ export function Navbar() {
 
           {/* User Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher compact />
             <button className="p-2 text-muted-foreground hover:text-foreground transition-colors relative">
               <Bell className="w-5 h-5" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-destructive rounded-full" />
@@ -96,10 +100,13 @@ export function Navbar() {
           exit={{ opacity: 0, y: -10 }}
           className="md:hidden glass border-b border-border"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3">
+            <div className="px-3 py-1">
+              <LanguageSwitcher compact className="w-full justify-between" />
+            </div>
             {navItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.key}
                 href={item.href}
                 className={cn(
                   "block px-3 py-2 rounded-md text-base font-medium",
@@ -109,7 +116,7 @@ export function Navbar() {
                 )}
                 onClick={() => setIsOpen(false)}
               >
-                {item.name}
+                {t(item.key)}
               </Link>
             ))}
           </div>

@@ -4,10 +4,13 @@ import { Suspense, lazy, useState } from 'react';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { motion } from 'framer-motion';
 import { TreePine, Tractor, ArrowRight, Droplets, Mountain, Banknote, TrendingUp } from 'lucide-react';
+import { useLanguage } from '@/components/LanguageProvider';
 
 const SustainabilityScene = lazy(() => import('@/components/3d/SustainabilityScene').then(mod => ({ default: mod.SustainabilityScene })));
 
 export default function SustainabilityPage() {
+   const { language } = useLanguage();
+   const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
   const [sliderPos, setSliderPos] = useState(50);
 
   return (
@@ -32,14 +35,14 @@ export default function SustainabilityPage() {
           {/* Left Side Content Overlay */}
           <div className="absolute inset-y-0 left-0 w-1/2 p-12 pr-6 flex flex-col justify-center z-10 transition-opacity" style={{ opacity: (1 - (sliderPos / 100)) * 1.5 }}>
              <div className="max-w-md ml-auto">
-                <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest uppercase mb-4 text-emerald-300">Natural Ecosystem</span>
+                <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest uppercase mb-4 text-emerald-300">{tx('Natural Ecosystem', 'प्राकृतिक पारिस्थितिकी', 'প্রাকৃতিক ইকোসিস্টেম')}</span>
                 <h2 className="text-5xl font-bold tracking-tight mb-12 drop-shadow-lg leading-[1.1]">Primary<br/>Rainforest</h2>
                 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                    <div className="bg-black/30 backdrop-blur-md p-6 rounded-2xl border border-white/10 group hover:bg-black/40 transition-colors">
                       <div className="flex items-center space-x-2 text-emerald-400 mb-2">
                          <Droplets className="w-4 h-4" />
-                         <span className="text-[10px] uppercase font-bold tracking-wider">Sequestration</span>
+                         <span className="text-[10px] uppercase font-bold tracking-wider">{tx('Sequestration', 'कार्बन संग्रहण', 'কার্বন সিকোয়েস্ট্রেশন')}</span>
                       </div>
                       <div className="flex items-baseline space-x-1 mb-2">
                          <span className="text-4xl font-bold">450</span>
@@ -51,7 +54,7 @@ export default function SustainabilityPage() {
                    <div className="bg-black/30 backdrop-blur-md p-6 rounded-2xl border border-white/10 group hover:bg-black/40 transition-colors">
                       <div className="flex items-center space-x-2 text-emerald-400 mb-2">
                          <TreePine className="w-4 h-4" />
-                         <span className="text-[10px] uppercase font-bold tracking-wider">Biodiversity</span>
+                         <span className="text-[10px] uppercase font-bold tracking-wider">{tx('Biodiversity', 'जैव विविधता', 'জীববৈচিত্র্য')}</span>
                       </div>
                       <div className="flex items-baseline space-x-1 mb-2">
                          <span className="text-4xl font-bold">98.4</span>
@@ -62,7 +65,7 @@ export default function SustainabilityPage() {
                 </div>
 
                 <button className="flex items-center space-x-2 text-sm font-bold uppercase tracking-widest hover:text-emerald-400 transition-colors">
-                   <span>View Species Matrix</span>
+                   <span>{tx('View Species Matrix', 'प्रजाति मैट्रिक्स देखें', 'প্রজাতি ম্যাট্রিক্স দেখুন')}</span>
                    <ArrowRight className="w-4 h-4" />
                 </button>
              </div>
@@ -71,14 +74,14 @@ export default function SustainabilityPage() {
           {/* Right Side Content Overlay */}
           <div className="absolute inset-y-0 right-0 w-1/2 p-12 pl-6 flex flex-col justify-center z-10 transition-opacity" style={{ opacity: (sliderPos / 100) * 1.5 }}>
              <div className="max-w-md mr-auto">
-                <span className="inline-block px-3 py-1 bg-[#8B6B4A]/20 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest uppercase mb-4 text-[#e0b991]">Digital Arboretum</span>
+                <span className="inline-block px-3 py-1 bg-[#8B6B4A]/20 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest uppercase mb-4 text-[#e0b991]">{tx('Digital Arboretum', 'डिजिटल आर्बोरेटम', 'ডিজিটাল আর্বোরেটাম')}</span>
                 <h2 className="text-5xl font-bold tracking-tight mb-12 drop-shadow-lg leading-[1.1]">TerraForge<br/>Managed</h2>
                 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                    <div className="bg-[#153423]/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 group hover:bg-[#153423]/60 transition-colors">
                       <div className="flex items-center space-x-2 text-[#A2ECAE] mb-2">
                          <TrendingUp className="w-4 h-4" />
-                         <span className="text-[10px] uppercase font-bold tracking-wider">Annual Yield</span>
+                         <span className="text-[10px] uppercase font-bold tracking-wider">{tx('Annual Yield', 'वार्षिक उपज', 'বার্ষিক ফলন')}</span>
                       </div>
                       <div className="flex items-baseline space-x-1 mb-2">
                          <span className="text-4xl font-bold">6.4</span>
@@ -90,7 +93,7 @@ export default function SustainabilityPage() {
                    <div className="bg-[#153423]/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 group hover:bg-[#153423]/60 transition-colors">
                       <div className="flex items-center space-x-2 text-[#A2ECAE] mb-2">
                          <Banknote className="w-4 h-4" />
-                         <span className="text-[10px] uppercase font-bold tracking-wider">Social Impact</span>
+                         <span className="text-[10px] uppercase font-bold tracking-wider">{tx('Social Impact', 'सामाजिक प्रभाव', 'সামাজিক প্রভাব')}</span>
                       </div>
                       <div className="flex items-baseline space-x-1 mb-2">
                          <span className="text-4xl font-bold">+42%</span>
@@ -101,7 +104,7 @@ export default function SustainabilityPage() {
                 </div>
 
                 <button className="flex items-center space-x-2 text-sm font-bold uppercase tracking-widest hover:text-[#A2ECAE] transition-colors">
-                   <span>Export Impact Report</span>
+                   <span>{tx('Export Impact Report', 'प्रभाव रिपोर्ट निर्यात करें', 'ইমপ্যাক্ট রিপোর্ট এক্সপোর্ট করুন')}</span>
                    <ArrowRight className="w-4 h-4" />
                 </button>
              </div>
@@ -116,8 +119,8 @@ export default function SustainabilityPage() {
                 </div>
                 
                 <div className="text-center px-4">
-                   <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">Sustainability Comparison</p>
-                   <p className="text-xs text-white/90">3D Interactive Simulation Active</p>
+                   <p className="text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">{tx('Sustainability Comparison', 'स्थिरता तुलना', 'টেকসইতা তুলনা')}</p>
+                   <p className="text-xs text-white/90">{tx('3D Interactive Simulation Active', '3D इंटरैक्टिव सिमुलेशन सक्रिय', '3D ইন্টারঅ্যাকটিভ সিমুলেশন সক্রিয়')}</p>
                 </div>
 
                 <div className="flex flex-col items-center text-center space-y-2 opacity-80" style={{ opacity: sliderPos > 50 ? 1 : 0.5 }}>
@@ -136,8 +139,8 @@ export default function SustainabilityPage() {
                 />
                 
                 <div className="flex justify-between text-[9px] font-bold uppercase tracking-widest mt-4">
-                   <span className="text-emerald-300">Preservation Focus</span>
-                   <span className="text-amber-300">Economic Focus</span>
+                   <span className="text-emerald-300">{tx('Preservation Focus', 'संरक्षण फोकस', 'সংরক্ষণ ফোকাস')}</span>
+                   <span className="text-amber-300">{tx('Economic Focus', 'आर्थिक फोकस', 'অর্থনৈতিক ফোকাস')}</span>
                 </div>
              </div>
           </div>
@@ -148,9 +151,9 @@ export default function SustainabilityPage() {
         <div className="bg-secondary/30 w-full py-24 flex-grow z-10">
            <div className="max-w-4xl mx-auto px-6">
               <div className="text-center mb-16">
-                 <h2 className="text-3xl font-bold mb-4">The Equilibrium Paradox</h2>
+                 <h2 className="text-3xl font-bold mb-4">{tx('The Equilibrium Paradox', 'संतुलन का विरोधाभास', 'সমতার প্যারাডক্স')}</h2>
                  <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                    Balancing planetary boundaries with human necessity requires precise, real-time data orchestration. TerraForge Systems maps the thin line between conservation and production.
+                    {tx('Balancing planetary boundaries with human necessity requires precise, real-time data orchestration. TerraForge Systems maps the thin line between conservation and production.', 'मानव आवश्यकता और पर्यावरणीय सीमाओं के संतुलन के लिए सटीक रीयल-टाइम डेटा आवश्यक है। TerraForge संरक्षण और उत्पादन के बीच की रेखा को मैप करता है।', 'মানব প্রয়োজন ও পরিবেশগত সীমার ভারসাম্যে নির্ভুল রিয়েল-টাইম ডেটা জরুরি। TerraForge সংরক্ষণ ও উৎপাদনের মাঝের সূক্ষ্ম রেখাটি ম্যাপ করে।')}
                  </p>
               </div>
 

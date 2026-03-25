@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Environment, Float, Sparkles, ContactShadows, Text } from '@react-three/drei';
+import { OrbitControls, Environment, Float, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
 
 function StylizedTree() {
@@ -75,14 +75,12 @@ function Ground() {
 export function HeroScene() {
   return (
     <div className="w-full h-[600px] lg:h-full cursor-grab active:cursor-grabbing">
-      <Canvas shadows camera={{ position: [5, 3, 5], fov: 45 }}>
+      <Canvas camera={{ position: [5, 3, 5], fov: 45 }}>
         <fog attach="fog" args={['#0a0a0a', 5, 15]} />
         <ambientLight intensity={0.5} />
         <directionalLight 
-          castShadow 
           position={[5, 10, 5]} 
           intensity={1.5} 
-          shadow-mapSize={[1024, 1024]} 
         />
         <pointLight position={[-5, 5, -5]} intensity={0.5} color="#4CAF50" />
         
@@ -98,14 +96,6 @@ export function HeroScene() {
           color="#A5D6A7" 
         />
         
-        <ContactShadows 
-          position={[0, -0.99, 0]} 
-          opacity={0.7} 
-          scale={10} 
-          blur={2.5} 
-          far={10} 
-        />
-
         <OrbitControls 
           enableZoom={false} 
           enablePan={false}

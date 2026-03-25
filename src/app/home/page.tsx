@@ -4,6 +4,7 @@ import { Suspense, lazy } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Leaf, Shield, TrendingUp, Users } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/components/LanguageProvider';
 
 // Lazy load 3D scene for performance
 const HeroScene = lazy(() => import('@/components/3d/HeroScene').then(mod => ({ default: mod.HeroScene })));
@@ -34,6 +35,8 @@ const metrics = [
 ];
 
 export default function Home() {
+  const { language } = useLanguage();
+  const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
@@ -52,10 +55,12 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary mb-6 ring-1 ring-inset ring-primary/20">
-                Digital Arboretum v2.0
+                {tx('Digital Arboretum v2.0', 'डिजिटल आर्बोरेटम v2.0', 'ডিজিটাল আর্বোরেটাম v2.0')}
               </div>
               <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
-                Empowering Your Future in <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-400">Oil Palm</span> Cultivation.
+                {tx('Empowering Your Future in ', 'आपके भविष्य को सशक्त बनाते हुए ', 'আপনার ভবিষ্যৎকে শক্তিশালী করে ')}
+                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-400">{tx('Oil Palm', 'ऑयल पाम', 'অয়েল পাম')}</span>
+                {tx(' Cultivation.', ' खेती।', ' চাষ।')}
               </h1>
             </motion.div>
 
@@ -65,7 +70,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              We combine precision agronomy with intelligent financial tools to transform traditional palm oil farming into a high-yield, sustainable digital enterprise.
+              {tx('We combine precision agronomy with intelligent financial tools to transform traditional palm oil farming into a high-yield, sustainable digital enterprise.', 'हम सटीक कृषि और स्मार्ट वित्तीय टूल्स को जोड़कर पारंपरिक पाम खेती को उच्च-उपज, टिकाऊ डिजिटल उद्यम में बदलते हैं।', 'আমরা প্রিসিশন এগ্রোনমি ও স্মার্ট ফাইন্যান্স টুল একত্র করে ঐতিহ্যবাহী পাম চাষকে উচ্চফলনশীল, টেকসই ডিজিটাল উদ্যোগে রূপান্তর করি।')}
             </motion.p>
 
             <motion.div
@@ -75,10 +80,10 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <Link href="/advisory" className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white transition-all bg-primary rounded-xl hover:bg-primary/90 hover:scale-105 hover:shadow-xl hover:shadow-primary/20">
-                Get Started
+                {tx('Get Started', 'शुरू करें', 'শুরু করুন')}
               </Link>
               <Link href="#features" className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold group transition-all rounded-xl hover:bg-secondary text-foreground">
-                Explore Platform
+                {tx('Explore Platform', 'प्लेटफ़ॉर्म देखें', 'প্ল্যাটফর্ম দেখুন')}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
@@ -91,7 +96,7 @@ export default function Home() {
                 <div className="w-full h-full flex items-center justify-center bg-secondary/50 rounded-3xl border border-white/10 animate-pulse">
                   <div className="flex flex-col items-center text-primary/50">
                     <Leaf className="w-12 h-12 mb-4 animate-bounce" />
-                    <span>Loading Simulation Engine...</span>
+                    <span>{tx('Loading Simulation Engine...', 'सिमुलेशन इंजन लोड हो रहा है...', 'সিমুলেশন ইঞ্জিন লোড হচ্ছে...')}</span>
                   </div>
                 </div>
               }>
@@ -132,9 +137,9 @@ export default function Home() {
       <section id="features" className="py-24 relative z-10 bg-background/50">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-sm font-bold text-primary uppercase tracking-wider mb-3">The Platform</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">Seed to Prosperity</h3>
-            <p className="text-lg text-muted-foreground">Comprehensive tools designed to eliminate guesswork, reduce risk, and maximize per-hectare profitability.</p>
+            <h2 className="text-sm font-bold text-primary uppercase tracking-wider mb-3">{tx('The Platform', 'प्लेटफ़ॉर्म', 'প্ল্যাটফর্ম')}</h2>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">{tx('Seed to Prosperity', 'बीज से समृद्धि तक', 'বীজ থেকে সমৃদ্ধি')}</h3>
+            <p className="text-lg text-muted-foreground">{tx('Comprehensive tools designed to eliminate guesswork, reduce risk, and maximize per-hectare profitability.', 'ऐसे व्यापक टूल्स जो अनुमान कम करें, जोखिम घटाएं और प्रति हेक्टेयर लाभ बढ़ाएं।', 'এমন সমন্বিত টুল যা অনুমান কমায়, ঝুঁকি কমায় এবং প্রতি হেক্টরে লাভ বাড়ায়।')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

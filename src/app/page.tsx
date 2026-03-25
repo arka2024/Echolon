@@ -4,8 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Leaf, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/components/LanguageProvider';
 
 export default function IntroLoginPage() {
+  const { t } = useLanguage();
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,6 +26,9 @@ export default function IntroLoginPage() {
 
   return (
     <div className="relative w-full h-screen bg-[#000] overflow-hidden flex items-center justify-center">
+      <div className="absolute right-4 top-4 z-[60]">
+        <LanguageSwitcher compact className="border-white/20 bg-black/40 text-white backdrop-blur-md" />
+      </div>
       
       {/* 
         Intro Video Layer 
@@ -65,7 +71,7 @@ export default function IntroLoginPage() {
               onClick={() => setIsVideoPlaying(false)}
               className="absolute bottom-12 right-12 z-10 px-6 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/10 hover:text-white transition-all backdrop-blur-md bg-black/20"
             >
-              Skip Intro
+              {t('login.skipIntro')}
             </button>
           </motion.div>
         )}
@@ -97,12 +103,12 @@ export default function IntroLoginPage() {
                </div>
             </div>
             
-            <h2 className="text-2xl font-bold text-center mb-2">Welcome Back</h2>
-            <p className="text-sm text-center text-muted-foreground mb-8">Enter your credentials to access your Digital Arboretum.</p>
+            <h2 className="text-2xl font-bold text-center mb-2">{t('login.welcomeBack')}</h2>
+            <p className="text-sm text-center text-muted-foreground mb-8">{t('login.enterCredentials')}</p>
 
             <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); window.location.href = '/home'; }}>
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Farm Access ID / Email</label>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('login.farmAccess')}</label>
                 <input 
                   type="email" 
                   required
@@ -115,8 +121,8 @@ export default function IntroLoginPage() {
               
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Secure Portal Key</label>
-                   <Link href="#" className="text-xs font-medium text-primary hover:text-primary/80">Forgot?</Link>
+                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('login.secureKey')}</label>
+                   <Link href="#" className="text-xs font-medium text-primary hover:text-primary/80">{t('login.forgot')}</Link>
                 </div>
                 <input 
                   type="password" 
@@ -132,16 +138,16 @@ export default function IntroLoginPage() {
                 type="submit"
                 className="w-full py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all shadow-lg shadow-primary/20 mt-4"
               >
-                <span>Authenticate Profile</span>
+                <span>{t('login.authenticate')}</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
             </form>
 
             <div className="mt-8 text-center">
                <p className="text-sm text-muted-foreground">
-                 New to TerraForge?{' '}
+                 {t('login.newTo')}{' '}
                  <Link href="/signup" className="font-bold text-foreground hover:text-primary transition-colors">
-                   Initiate Farm Setup
+                   {t('login.initiateSetup')}
                  </Link>
                </p>
             </div>

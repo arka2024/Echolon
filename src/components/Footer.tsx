@@ -8,7 +8,7 @@ export function Footer() {
   const pathname = usePathname();
 
   // Hide Footer on the intro/login and signup pages
-  if (pathname === '/' || pathname === '/signup') {
+  if (pathname === '/' || pathname === '/signup' || pathname.startsWith('/buyer')) {
     return null;
   }
 

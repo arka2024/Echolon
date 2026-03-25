@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Environment, SoftShadows } from '@react-three/drei';
+import { Environment } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface Props {
@@ -95,11 +95,9 @@ function Scene({ sliderPos }: Props) {
       {/* Dynamic light based on side bias */}
       <ambientLight intensity={0.4} />
       <directionalLight
-        castShadow
         position={[0, 5, 2]}
         intensity={1.5}
         color={forestOpacity > 0.5 ? '#e8f5e9' : '#f1f8e9'}
-        shadow-mapSize={[1024, 1024]}
       />
 
       <group position={[0, -0.5, 0]}>
@@ -119,8 +117,7 @@ function Scene({ sliderPos }: Props) {
 export function SustainabilityScene({ sliderPos }: Props) {
   return (
     <div className="absolute inset-0 bg-[#09090b]">
-      <Canvas camera={{ position: [0, 4, 10], fov: 40 }} shadows>
-        <SoftShadows size={20} samples={10} />
+      <Canvas camera={{ position: [0, 4, 10], fov: 40 }}>
         <fog attach="fog" args={['#09090b', 8, 20]} />
         <Scene sliderPos={sliderPos} />
         <Environment preset="forest" />
