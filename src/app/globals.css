@@ -107,6 +107,47 @@
   html[lang="bn"] body {
     font-family: var(--font-bn), var(--font-noto), var(--font-inter), system-ui, sans-serif;
   }
+
+  html[data-lang="mr"] body,
+  html[data-lang="hi"] body {
+    font-family: var(--font-hi), "Noto Sans Devanagari", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="te"] body {
+    font-family: "Noto Sans Telugu", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="ta"] body {
+    font-family: "Noto Sans Tamil", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="gu"] body {
+    font-family: "Noto Sans Gujarati", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="ur"] body {
+    font-family: "Noto Nastaliq Urdu", "Noto Sans Arabic", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="kn"] body {
+    font-family: "Noto Sans Kannada", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="ml"] body {
+    font-family: "Noto Sans Malayalam", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="pa"] body {
+    font-family: "Noto Sans Gurmukhi", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="or"] body {
+    font-family: "Noto Sans Oriya", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
+
+  html[data-lang="as"] body {
+    font-family: var(--font-bn), "Noto Sans Bengali", var(--font-noto), var(--font-inter), system-ui, sans-serif;
+  }
 }
 
 .glass {

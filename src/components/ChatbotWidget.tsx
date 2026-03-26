@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Bot, MessageCircle, Send, X } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
+import { normalizeAppLanguage } from '@/lib/language';
 
 type Language = 'en' | 'bn';
 type Role = 'user' | 'bot';
@@ -48,27 +49,26 @@ export function ChatbotWidget() {
   ]);
 
   const hiddenPaths = useMemo(() => new Set(['/', '/login']), []);
-  if (hiddenPaths.has(pathname) || pathname.startsWith('/buyer')) {
-    return null;
-  }
+  const shouldHideChatbot = hiddenPaths.has(pathname) || pathname.startsWith('/buyer');
 
-  const normalizedLanguage: Language = language === 'bn' ? 'bn' : 'en';
-  const text = uiText[normalizedLanguage];
+  const normalizedLanguage = normalizeAppLanguage(language);
+  const uiLanguage: Language = normalizedLanguage === 'bn' ? 'bn' : 'en';
+  const text = uiText[uiLanguage];
 
   useEffect(() => {
     setMessages((prev) => {
       if (prev.length === 0) {
-        return [{ id: Date.now(), role: 'bot', content: uiText[normalizedLanguage].welcome }];
+        return [{ id: Date.now(), role: 'bot', content: uiText[uiLanguage].welcome }];
       }
 
       const last = prev[prev.length - 1];
-      if (last.role === 'bot' && last.content === uiText[normalizedLanguage].welcome) {
+      if (last.role === 'bot' && last.content === uiText[uiLanguage].welcome) {
         return prev;
       }
 
-      return [...prev, { id: Date.now(), role: 'bot', content: uiText[normalizedLanguage].welcome }];
+      return [...prev, { id: Date.now(), role: 'bot', content: uiText[uiLanguage].welcome }];
     });
-  }, [normalizedLanguage]);
+  }, [uiLanguage]);
 
   const submitMessage = async (message?: string) => {
     const value = (message ?? input).trim();
@@ -113,7 +113,7 @@ export function ChatbotWidget() {
       const botMsg: ChatMessage = {
         id: Date.now() + 1,
         role: 'bot',
-        content: reply || (normalizedLanguage === 'bn'
+        content: reply || (uiLanguage === 'bn'
           ? 'দুঃখিত, এখন উত্তর পাওয়া যাচ্ছে না। অনুগ্রহ করে আবার চেষ্টা করুন।'
           : 'Sorry, I could not generate a response right now. Please try again.'),
       };
@@ -123,7 +123,7 @@ export function ChatbotWidget() {
       const botMsg: ChatMessage = {
         id: Date.now() + 1,
         role: 'bot',
-        content: normalizedLanguage === 'bn'
+        content: uiLanguage === 'bn'
           ? 'এই মুহূর্তে সার্ভারের সাথে সংযোগ করা যাচ্ছে না। পরে আবার চেষ্টা করুন।'
           : 'I am unable to connect to the AI server at the moment. Please try again shortly.',
       };
@@ -142,6 +142,10 @@ export function ChatbotWidget() {
   const handleLanguageChange = (next: Language) => {
     setLanguage(next);
   };
+
+  if (shouldHideChatbot) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-4 right-4 z-[70] flex flex-col items-end gap-3">
@@ -167,7 +171,7 @@ export function ChatbotWidget() {
               type="button"
               onClick={() => handleLanguageChange('en')}
               className={`rounded-full px-3 py-1 text-xs font-medium transition ${
-                normalizedLanguage === 'en' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'
+                uiLanguage === 'en' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'
               }`}
             >
               EN
@@ -176,7 +180,7 @@ export function ChatbotWidget() {
               type="button"
               onClick={() => handleLanguageChange('bn')}
               className={`rounded-full px-3 py-1 text-xs font-medium transition ${
-                normalizedLanguage === 'bn' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'
+                uiLanguage === 'bn' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'
               }`}
             >
               বাংলা

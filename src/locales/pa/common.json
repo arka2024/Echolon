@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "ਸਲਾਹ",
+  "nav.finance": "ਵਿੱਤ",
+  "nav.market": "ਮਾਰਕੀਟ",
+  "nav.community": "ਸਮੁਦਾਇ",
+  "nav.sustainability": "ਟਿਕਾਊਪਣ",
+  "nav.contact": "ਸੰਪਰਕ",
+  "login.welcomeBack": "ਮੁੜ ਸੁਆਗਤ ਹੈ",
+  "login.authenticate": "ਪ੍ਰੋਫਾਈਲ ਪ੍ਰਮਾਣਿਤ ਕਰੋ",
+  "login.skipIntro": "ਇੰਟਰੋ ਛੱਡੋ",
+  "signup.farmer": "ਕਿਸਾਨ",
+  "signup.buyerCompany": "ਖਰੀਦਦਾਰ ਕੰਪਨੀ",
+  "signup.continue": "ਜਾਰੀ ਰੱਖੋ",
+  "buyer.companyName": "ਕੰਪਨੀ ਦਾ ਨਾਮ",
+  "buyer.phoneNumber": "ਫੋਨ ਨੰਬਰ",
+  "buyer.completeRegistration": "ਕੰਪਨੀ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਪੂਰੀ ਕਰੋ",
+  "language.sampleWordsLabel": "ਨਮੂਨਾ ਸ਼ਬਦ"
+}

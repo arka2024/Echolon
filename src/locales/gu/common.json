@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "સલાહ",
+  "nav.finance": "વિત્ત",
+  "nav.market": "બજાર",
+  "nav.community": "સમુદાય",
+  "nav.sustainability": "ટકાઉપણું",
+  "nav.contact": "સંપર્ક",
+  "login.welcomeBack": "પાછા આવવા બદલ સ્વાગત",
+  "login.authenticate": "પ્રોફાઇલ પ્રમાણિત કરો",
+  "login.skipIntro": "ઇન્ટ્રો છોડો",
+  "signup.farmer": "ખેડૂત",
+  "signup.buyerCompany": "ખરીદદાર કંપની",
+  "signup.continue": "આગળ વધો",
+  "buyer.companyName": "કંપની નામ",
+  "buyer.phoneNumber": "ફોન નંબર",
+  "buyer.completeRegistration": "કંપની નોંધણી પૂર્ણ કરો",
+  "language.sampleWordsLabel": "નમૂના શબ્દો"
+}

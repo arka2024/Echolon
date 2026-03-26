@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, Building2, ClipboardList, PackageCheck, Truck } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
+import { translateTriplet } from '@/lib/translations';
 
 const quickStats = [
   { title: 'Active Orders', value: '18', icon: <ClipboardList className="h-5 w-5" /> },
@@ -12,7 +13,7 @@ const quickStats = [
 
 export default function BuyerDashboardPage() {
   const { language } = useLanguage();
-  const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
+  const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
 
   return (
     <div className="space-y-6">

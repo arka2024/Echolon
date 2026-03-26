@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "مشورہ",
+  "nav.finance": "مالیات",
+  "nav.market": "بازار",
+  "nav.community": "کمیونٹی",
+  "nav.sustainability": "پائیداری",
+  "nav.contact": "رابطہ",
+  "login.welcomeBack": "خوش آمدید",
+  "login.authenticate": "پروفائل کی تصدیق کریں",
+  "login.skipIntro": "تعارف چھوڑیں",
+  "signup.farmer": "کسان",
+  "signup.buyerCompany": "خریدار کمپنی",
+  "signup.continue": "جاری رکھیں",
+  "buyer.companyName": "کمپنی کا نام",
+  "buyer.phoneNumber": "فون نمبر",
+  "buyer.completeRegistration": "کمپنی رجسٹریشن مکمل کریں",
+  "language.sampleWordsLabel": "نمونہ الفاظ"
+}

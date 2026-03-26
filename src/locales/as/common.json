@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "পৰামৰ্শ",
+  "nav.finance": "বিত্ত",
+  "nav.market": "বজাৰ",
+  "nav.community": "সমাজ",
+  "nav.sustainability": "স্থিতিশীলতা",
+  "nav.contact": "যোগাযোগ",
+  "login.welcomeBack": "পুনৰ স্বাগতম",
+  "login.authenticate": "প্ৰোফাইল প্ৰমাণিত কৰক",
+  "login.skipIntro": "ইণ্ট্ৰো এৰক",
+  "signup.farmer": "কৃষক",
+  "signup.buyerCompany": "ক্ৰেতা কোম্পানী",
+  "signup.continue": "আগবাঢ়ক",
+  "buyer.companyName": "কোম্পানীৰ নাম",
+  "buyer.phoneNumber": "ফোন নম্বৰ",
+  "buyer.completeRegistration": "কোম্পানীৰ নিবন্ধন সম্পূৰ্ণ কৰক",
+  "language.sampleWordsLabel": "নমুনা শব্দ"
+}

@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "ഉപദേശം",
+  "nav.finance": "ഫൈനാൻസ്",
+  "nav.market": "മാർക്കറ്റ്",
+  "nav.community": "കമ്മ്യൂണിറ്റി",
+  "nav.sustainability": "സ്ഥിരത",
+  "nav.contact": "ബന്ധപ്പെടുക",
+  "login.welcomeBack": "വീണ്ടും സ്വാഗതം",
+  "login.authenticate": "പ്രൊഫൈൽ സ്ഥിരീകരിക്കുക",
+  "login.skipIntro": "ഇൻട്രോ ഒഴിവാക്കുക",
+  "signup.farmer": "കർഷകൻ",
+  "signup.buyerCompany": "വാങ്ങുന്ന കമ്പനി",
+  "signup.continue": "തുടരുക",
+  "buyer.companyName": "കമ്പനിയുടെ പേര്",
+  "buyer.phoneNumber": "ഫോൺ നമ്പർ",
+  "buyer.completeRegistration": "കമ്പനി രജിസ്ട്രേഷൻ പൂർത്തിയാക്കുക",
+  "language.sampleWordsLabel": "സാമ്പിൾ വാക്കുകൾ"
+}

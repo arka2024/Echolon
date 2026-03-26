@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, MessageSquare, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
+import { translateTriplet } from '@/lib/translations';
 
 export default function ContactPage() {
   const { language } = useLanguage();
-  const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
+  const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
   return (
     <div className="min-h-[calc(100vh-5rem)] bg-background w-full py-12 lg:py-24 relative overflow-hidden">
       
@@ -33,11 +34,11 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">First Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="John" />
+                  <input type="text" className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Arjun" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Last Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Doe" />
+                  <input type="text" className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Patnaik" />
                 </div>
               </div>
 
@@ -90,8 +91,8 @@ export default function ContactPage() {
               <div className="glass-panel p-6 rounded-2xl flex flex-col">
                 <Phone className="w-6 h-6 text-primary mb-4" />
                 <h5 className="font-bold mb-1">Helpline</h5>
-                <p className="text-sm text-muted-foreground">+1 (800) PALM-GROW</p>
-                <p className="text-xs text-muted-foreground mt-1">Mon-Fri, 9am - 6pm EST</p>
+                <p className="text-sm text-muted-foreground">+91 674 400 5050</p>
+                <p className="text-xs text-muted-foreground mt-1">Mon-Fri, 9am - 6pm IST</p>
               </div>
 
               <div className="glass-panel p-6 rounded-2xl flex flex-col">
@@ -103,8 +104,8 @@ export default function ContactPage() {
 
               <div className="glass-panel p-6 rounded-2xl flex flex-col md:col-span-2">
                 <MapPin className="w-6 h-6 text-primary mb-4" />
-                <h5 className="font-bold mb-1">Global HQ</h5>
-                <p className="text-sm text-muted-foreground">142 Arboretum Way, Suite 300<br/>San Francisco, CA 94105</p>
+                <h5 className="font-bold mb-1">India HQ</h5>
+                <p className="text-sm text-muted-foreground">Plot 24, Infocity Avenue, Patia<br/>Bhubaneswar, Odisha 751024</p>
               </div>
             </div>
           </motion.div>

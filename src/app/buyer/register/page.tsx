@@ -55,7 +55,7 @@ export default function BuyerRegisterPage() {
             <Field label={t('buyer.companyName')} value={formData.companyName} onChange={(v) => setFormData((p) => ({ ...p, companyName: v }))} required />
             <Field label={t('buyer.contactPerson')} value={formData.contactPerson} onChange={(v) => setFormData((p) => ({ ...p, contactPerson: v }))} required />
             <Field label={t('buyer.officialEmail')} type="email" value={formData.email} onChange={(v) => setFormData((p) => ({ ...p, email: v }))} required />
-            <Field label={t('buyer.phoneNumber')} value={formData.phone} onChange={(v) => setFormData((p) => ({ ...p, phone: v }))} required />
+            <Field label={t('buyer.phoneNumber')} value={formData.phone} onChange={(v) => setFormData((p) => ({ ...p, phone: v }))} placeholder="+91 98765 43210" required />
             <Field label={t('buyer.gstin')} value={formData.gstin} onChange={(v) => setFormData((p) => ({ ...p, gstin: v }))} required />
             <Field label={t('buyer.apmc')} value={formData.apmcLicense} onChange={(v) => setFormData((p) => ({ ...p, apmcLicense: v }))} required />
             <Field label={t('buyer.primaryCommodity')} value={formData.primaryCommodity} onChange={(v) => setFormData((p) => ({ ...p, primaryCommodity: v }))} required />
@@ -97,12 +97,14 @@ function Field({
   value,
   onChange,
   required,
+  placeholder,
   type = 'text',
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   required?: boolean;
+  placeholder?: string;
   type?: string;
 }) {
   return (
@@ -113,6 +115,7 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
         className="w-full rounded-xl border border-white/15 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/30"
       />
     </label>

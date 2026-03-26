@@ -51,7 +51,7 @@ export default function DashboardPage() {
           {/* Revenue */}
           <div className="p-6 rounded-2xl bg-secondary shadow">
             <h2>Revenue</h2>
-            <p className="text-3xl">$24M</p>
+            <p className="text-3xl">₹24 Cr</p>
           </div>
 
         </div>

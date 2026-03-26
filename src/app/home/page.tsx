@@ -1,13 +1,10 @@
 'use client';
 
-import { Suspense, lazy } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Leaf, Shield, TrendingUp, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Leaf, TrendingUp, Users } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/components/LanguageProvider';
-
-// Lazy load 3D scene for performance
-const HeroScene = lazy(() => import('@/components/3d/HeroScene').then(mod => ({ default: mod.HeroScene })));
+import { translateTriplet } from '@/lib/translations';
 
 const features = [
   {
@@ -30,21 +27,19 @@ const features = [
 const metrics = [
   { value: '15,000+', label: 'Empowered Farmers' },
   { value: '98%', label: 'Yield Accuracy' },
-  { value: '$24M+', label: 'Farmer Income Generated' },
+  { value: '₹24 Cr+', label: 'Farmer Income Generated' },
   { value: '4.9/5', label: 'Average Trust Rating' },
 ];
 
 export default function Home() {
   const { language } = useLanguage();
-  const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
 
   return (
     <div className="relative w-full overflow-hidden bg-background">
       
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative h-[92vh] flex items-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full h-full">
           
           {/* Left: Text Content */}
@@ -89,20 +84,24 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Right: 3D Visualization */}
-          <div className="hidden lg:block relative h-full w-full pointer-events-none">
-            <motion.div style={{ y }} className="absolute inset-0 pointer-events-auto">
-              <Suspense fallback={
-                <div className="w-full h-full flex items-center justify-center bg-secondary/50 rounded-3xl border border-white/10 animate-pulse">
-                  <div className="flex flex-col items-center text-primary/50">
-                    <Leaf className="w-12 h-12 mb-4 animate-bounce" />
-                    <span>{tx('Loading Simulation Engine...', 'सिमुलेशन इंजन लोड हो रहा है...', 'সিমুলেশন ইঞ্জিন লোড হচ্ছে...')}</span>
-                  </div>
-                </div>
-              }>
-                <HeroScene />
-              </Suspense>
-            </motion.div>
+          {/* Right: realistic image panel */}
+          <div className="hidden lg:block relative h-full w-full">
+            <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10">
+              <img
+                src="/images/home-hero.jpg"
+                alt="Germinating seeds and young crops in field"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent p-6">
+                <p className="text-xs uppercase tracking-[0.18em] text-white/80 font-semibold">
+                  {tx('Field Reality', 'खेत की वास्तविकता', 'মাঠের বাস্তবতা')}
+                </p>
+                <p className="mt-2 text-xl font-semibold text-white">
+                  {tx('Healthy germination decides season success', 'स्वस्थ अंकुरण ही सीज़न की सफलता तय करता है', 'সুস্থ অঙ্কুরোদ্গমই মৌসুমের সাফল্য নির্ধারণ করে')}
+                </p>
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -165,6 +164,7 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
       

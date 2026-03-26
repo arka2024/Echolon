@@ -23,15 +23,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="antialiased">
-      <body className={`${inter.variable} ${notoSans.variable} ${notoBengali.variable} ${notoDevanagari.variable}`}>
+      <body className={`${inter.variable} ${notoSans.variable} ${notoBengali.variable} ${notoDevanagari.variable} min-h-screen`}>
         <LanguageProvider>
-          <Navbar />
-          {/* We add a padding top to avoid content hiding behind the fixed navbar */}
-          <main className="pt-16 lg:pt-20 min-h-screen">
-            {children}
-          </main>
-          <ChatbotWidget />
-          <Footer />
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            {/* Keep content clear of fixed navbar while allowing footer to stay at page bottom */}
+            <main className="flex-1 pt-16 lg:pt-20">
+              {children}
+            </main>
+            <ChatbotWidget />
+            <Footer />
+          </div>
         </LanguageProvider>
       </body>
     </html>
