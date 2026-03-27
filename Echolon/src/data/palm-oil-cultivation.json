@@ -1,0 +1,68 @@
+{
+  "palmCultivationKnowledge": [
+    {
+      "topic": "Climate and Location",
+      "points": [
+        "Oil palm grows best in warm humid tropical belts with 24C-32C average temperature.",
+        "Consistent rainfall and good water availability are important, but standing water should be avoided.",
+        "Strong sunlight supports bunch formation and oil accumulation."
+      ]
+    },
+    {
+      "topic": "Soil and Land Preparation",
+      "points": [
+        "Deep well-drained loam to clay-loam soils are preferred.",
+        "Avoid prolonged waterlogging; establish drainage channels before plantation.",
+        "Use soil testing to decide nutrient correction before planting."
+      ]
+    },
+    {
+      "topic": "Planting and Spacing",
+      "points": [
+        "Use healthy certified seedlings from trusted nurseries.",
+        "Maintain scientific spacing for light interception and machinery movement.",
+        "Early field sanitation reduces pest pressure during establishment."
+      ]
+    },
+    {
+      "topic": "Nutrition and Fertilizer",
+      "points": [
+        "Apply nutrients in split doses based on age and yield stage.",
+        "Nitrogen, phosphorus, potassium, magnesium and boron balance is important for bunch quality.",
+        "Mulching and organic matter improve moisture retention and soil health."
+      ]
+    },
+    {
+      "topic": "Irrigation and Moisture",
+      "points": [
+        "Irrigation frequency should match soil type, crop stage and forecast rainfall.",
+        "Schedule irrigation in cooler hours to reduce evaporative losses.",
+        "Do not over-irrigate heavy soils; ensure drainage monitoring in rainy windows."
+      ]
+    },
+    {
+      "topic": "Pest and Disease",
+      "points": [
+        "Regular scouting helps detect leaf symptoms, trunk damage and nutrient stress early.",
+        "Integrated pest management should combine sanitation, monitoring and targeted interventions.",
+        "For severe disease incidence, consult local agronomists and approved crop protection protocols."
+      ]
+    },
+    {
+      "topic": "Harvest and Post Harvest",
+      "points": [
+        "Harvest at proper ripeness to improve oil extraction rates.",
+        "Reduce delay between harvest and processing to protect quality.",
+        "Use clean handling and transport practices to reduce losses."
+      ]
+    },
+    {
+      "topic": "Market and Logistics",
+      "points": [
+        "Compare buyers based on trust index, response time and minimum order quantities.",
+        "Use quota booking and nearest partner routing to improve dispatch reliability.",
+        "Large quantities may require direct company contact and planned dispatch slots."
+      ]
+    }
+  ]
+}
