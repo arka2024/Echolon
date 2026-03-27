@@ -5,12 +5,20 @@ import { DashboardLayout } from '@/components/DashboardLayout';
 import { motion } from 'framer-motion';
 import { TreePine, Tractor, ArrowRight, Droplets, Mountain, Banknote, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
+<<<<<<< HEAD
+=======
+import { translateTriplet } from '@/lib/translations';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
 const SustainabilityScene = lazy(() => import('@/components/3d/SustainabilityScene').then(mod => ({ default: mod.SustainabilityScene })));
 
 export default function SustainabilityPage() {
    const { language } = useLanguage();
+<<<<<<< HEAD
    const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
+=======
+   const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
   const [sliderPos, setSliderPos] = useState(50);
 
   return (
@@ -233,7 +241,11 @@ export default function SustainabilityPage() {
                        <div>
                           <div className="flex justify-between mb-1 uppercase text-muted-foreground">
                              <span>Forest</span>
+<<<<<<< HEAD
                              <span>$1.2K (Carbon)</span>
+=======
+                             <span>₹1.2 Lakh (Carbon)</span>
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
                           </div>
                           <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
                              <div className="h-full bg-emerald-700 w-[15%]" />
@@ -243,7 +255,11 @@ export default function SustainabilityPage() {
                        <div>
                           <div className="flex justify-between mb-1 uppercase text-muted-foreground">
                              <span>TerraForge</span>
+<<<<<<< HEAD
                              <span>$14.8K (Mixed)</span>
+=======
+                             <span>₹14.8 Lakh (Mixed)</span>
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
                           </div>
                           <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
                              <div className="h-full bg-amber-600 w-[95%]" />

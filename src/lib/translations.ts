@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 export type SupportedLanguage = 'en' | 'hi' | 'bn';
+=======
+export type SupportedLanguage = 'en' | 'hi' | 'bn' | 'mr' | 'te' | 'ta' | 'gu' | 'ur' | 'kn' | 'ml' | 'pa' | 'or' | 'as';
+import { getRuntimeTranslatedText } from '@/lib/runtimeTranslation';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
 const translations: Record<SupportedLanguage, Record<string, string>> = {
   en: {
@@ -181,9 +186,211 @@ const translations: Record<SupportedLanguage, Record<string, string>> = {
     'buyer.priorityDesc': 'জরুরি অর্ডার আগে দেখানো হবে',
     'buyer.completeRegistration': 'কোম্পানি নিবন্ধন সম্পূর্ণ করুন',
   },
+<<<<<<< HEAD
 };
 
 export function translate(language: string, key: string): string {
   const lang = (language in translations ? language : 'en') as SupportedLanguage;
   return translations[lang][key] ?? translations.en[key] ?? key;
 }
+=======
+  mr: {
+    'nav.advisory': 'सल्ला',
+    'nav.finance': 'वित्त',
+    'nav.market': 'बाजार',
+    'nav.community': 'समुदाय',
+    'nav.sustainability': 'शाश्वतता',
+    'nav.contact': 'संपर्क',
+    'login.welcomeBack': 'पुन्हा स्वागत',
+    'login.authenticate': 'प्रोफाइल सत्यापित करा',
+    'login.skipIntro': 'परिचय वगळा',
+    'signup.farmer': 'शेतकरी',
+    'signup.buyerCompany': 'खरेदीदार कंपनी',
+    'signup.continue': 'पुढे जा',
+    'buyer.companyName': 'कंपनीचे नाव',
+    'buyer.phoneNumber': 'फोन नंबर',
+    'buyer.completeRegistration': 'कंपनी नोंदणी पूर्ण करा',
+  },
+  te: {
+    'nav.advisory': 'సలహా',
+    'nav.finance': 'ఫైనాన్స్',
+    'nav.market': 'మార్కెట్',
+    'nav.community': 'సమాజం',
+    'nav.sustainability': 'స్థిరత్వం',
+    'nav.contact': 'సంప్రదింపు',
+    'login.welcomeBack': 'మళ్లీ స్వాగతం',
+    'login.authenticate': 'ప్రొఫైల్ ధృవీకరించండి',
+    'login.skipIntro': 'ఇంట్రో దాటవేయి',
+    'signup.farmer': 'రైతు',
+    'signup.buyerCompany': 'కొనుగోలుదారు కంపెనీ',
+    'signup.continue': 'కొనసాగించండి',
+    'buyer.companyName': 'కంపెనీ పేరు',
+    'buyer.phoneNumber': 'ఫోన్ నంబర్',
+    'buyer.completeRegistration': 'కంపెనీ నమోదు పూర్తి చేయండి',
+  },
+  ta: {
+    'nav.advisory': 'ஆலோசனை',
+    'nav.finance': 'நிதி',
+    'nav.market': 'சந்தை',
+    'nav.community': 'சமூகம்',
+    'nav.sustainability': 'நிலைத்தன்மை',
+    'nav.contact': 'தொடர்பு',
+    'login.welcomeBack': 'மீண்டும் வரவேற்கிறோம்',
+    'login.authenticate': 'சுயவிவரத்தை உறுதிசெய்',
+    'login.skipIntro': 'அறிமுகத்தை தவிர்',
+    'signup.farmer': 'விவசாயி',
+    'signup.buyerCompany': 'வாங்குபவர் நிறுவனம்',
+    'signup.continue': 'தொடரவும்',
+    'buyer.companyName': 'நிறுவனப் பெயர்',
+    'buyer.phoneNumber': 'தொலைபேசி எண்',
+    'buyer.completeRegistration': 'நிறுவன பதிவு முடிக்கவும்',
+  },
+  gu: {
+    'nav.advisory': 'સલાહ',
+    'nav.finance': 'વિત્ત',
+    'nav.market': 'બજાર',
+    'nav.community': 'સમુદાય',
+    'nav.sustainability': 'ટકાઉપણું',
+    'nav.contact': 'સંપર્ક',
+    'login.welcomeBack': 'પાછા આવવા બદલ સ્વાગત',
+    'login.authenticate': 'પ્રોફાઇલ પ્રમાણિત કરો',
+    'login.skipIntro': 'ઇન્ટ્રો છોડો',
+    'signup.farmer': 'ખેડૂત',
+    'signup.buyerCompany': 'ખરીદદાર કંપની',
+    'signup.continue': 'આગળ વધો',
+    'buyer.companyName': 'કંપની નામ',
+    'buyer.phoneNumber': 'ફોન નંબર',
+    'buyer.completeRegistration': 'કંપની નોંધણી પૂર્ણ કરો',
+  },
+  ur: {
+    'nav.advisory': 'مشورہ',
+    'nav.finance': 'مالیات',
+    'nav.market': 'بازار',
+    'nav.community': 'کمیونٹی',
+    'nav.sustainability': 'پائیداری',
+    'nav.contact': 'رابطہ',
+    'login.welcomeBack': 'خوش آمدید',
+    'login.authenticate': 'پروفائل کی تصدیق کریں',
+    'login.skipIntro': 'تعارف چھوڑیں',
+    'signup.farmer': 'کسان',
+    'signup.buyerCompany': 'خریدار کمپنی',
+    'signup.continue': 'جاری رکھیں',
+    'buyer.companyName': 'کمپنی کا نام',
+    'buyer.phoneNumber': 'فون نمبر',
+    'buyer.completeRegistration': 'کمپنی رجسٹریشن مکمل کریں',
+  },
+  kn: {
+    'nav.advisory': 'ಸಲಹೆ',
+    'nav.finance': 'ಹಣಕಾಸು',
+    'nav.market': 'ಮಾರುಕಟ್ಟೆ',
+    'nav.community': 'ಸಮುದಾಯ',
+    'nav.sustainability': 'ಸ್ಥಿರತೆ',
+    'nav.contact': 'ಸಂಪರ್ಕ',
+    'login.welcomeBack': 'ಮತ್ತೆ ಸ್ವಾಗತ',
+    'login.authenticate': 'ಪ್ರೊಫೈಲ್ ದೃಢೀಕರಿಸಿ',
+    'login.skipIntro': 'ಪರಿಚಯವನ್ನು ಬಿಟ್ಟುಬಿಡಿ',
+    'signup.farmer': 'ರೈತ',
+    'signup.buyerCompany': 'ಖರೀದಿದಾರ ಕಂಪನಿ',
+    'signup.continue': 'ಮುಂದುವರಿಸಿ',
+    'buyer.companyName': 'ಕಂಪನಿಯ ಹೆಸರು',
+    'buyer.phoneNumber': 'ದೂರವಾಣಿ ಸಂಖ್ಯೆ',
+    'buyer.completeRegistration': 'ಕಂಪನಿ ನೋಂದಣಿ ಪೂರ್ಣಗೊಳಿಸಿ',
+  },
+  ml: {
+    'nav.advisory': 'ഉപദേശം',
+    'nav.finance': 'ഫൈനാൻസ്',
+    'nav.market': 'മാർക്കറ്റ്',
+    'nav.community': 'കമ്മ്യൂണിറ്റി',
+    'nav.sustainability': 'സ്ഥിരത',
+    'nav.contact': 'ബന്ധപ്പെടുക',
+    'login.welcomeBack': 'വീണ്ടും സ്വാഗതം',
+    'login.authenticate': 'പ്രൊഫൈൽ സ്ഥിരീകരിക്കുക',
+    'login.skipIntro': 'ഇൻട്രോ ഒഴിവാക്കുക',
+    'signup.farmer': 'കർഷകൻ',
+    'signup.buyerCompany': 'വാങ്ങുന്ന കമ്പനി',
+    'signup.continue': 'തുടരുക',
+    'buyer.companyName': 'കമ്പനിയുടെ പേര്',
+    'buyer.phoneNumber': 'ഫോൺ നമ്പർ',
+    'buyer.completeRegistration': 'കമ്പനി രജിസ്ട്രേഷൻ പൂർത്തിയാക്കുക',
+  },
+  pa: {
+    'nav.advisory': 'ਸਲਾਹ',
+    'nav.finance': 'ਵਿੱਤ',
+    'nav.market': 'ਮਾਰਕੀਟ',
+    'nav.community': 'ਸਮੁਦਾਇ',
+    'nav.sustainability': 'ਟਿਕਾਊਪਣ',
+    'nav.contact': 'ਸੰਪਰਕ',
+    'login.welcomeBack': 'ਮੁੜ ਸੁਆਗਤ ਹੈ',
+    'login.authenticate': 'ਪ੍ਰੋਫਾਈਲ ਪ੍ਰਮਾਣਿਤ ਕਰੋ',
+    'login.skipIntro': 'ਇੰਟਰੋ ਛੱਡੋ',
+    'signup.farmer': 'ਕਿਸਾਨ',
+    'signup.buyerCompany': 'ਖਰੀਦਦਾਰ ਕੰਪਨੀ',
+    'signup.continue': 'ਜਾਰੀ ਰੱਖੋ',
+    'buyer.companyName': 'ਕੰਪਨੀ ਦਾ ਨਾਮ',
+    'buyer.phoneNumber': 'ਫੋਨ ਨੰਬਰ',
+    'buyer.completeRegistration': 'ਕੰਪਨੀ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਪੂਰੀ ਕਰੋ',
+  },
+  or: {
+    'nav.advisory': 'ପରାମର୍ଶ',
+    'nav.finance': 'ଆର୍ଥିକ',
+    'nav.market': 'ବଜାର',
+    'nav.community': 'ସମୁଦାୟ',
+    'nav.sustainability': 'ସ୍ଥିରତା',
+    'nav.contact': 'ଯୋଗାଯୋଗ',
+    'login.welcomeBack': 'ପୁଣିଥରେ ସ୍ୱାଗତ',
+    'login.authenticate': 'ପ୍ରୋଫାଇଲ ସତ୍ୟାପନ କରନ୍ତୁ',
+    'login.skipIntro': 'ଇନ୍ଟ୍ରୋ ଛାଡନ୍ତୁ',
+    'signup.farmer': 'ଚାଷୀ',
+    'signup.buyerCompany': 'କ୍ରେତା କମ୍ପାନୀ',
+    'signup.continue': 'ଚାଲୁ ରଖନ୍ତୁ',
+    'buyer.companyName': 'କମ୍ପାନୀ ନାମ',
+    'buyer.phoneNumber': 'ଫୋନ ନମ୍ବର',
+    'buyer.completeRegistration': 'କମ୍ପାନୀ ପଞ୍ଜିକରଣ ସମ୍ପୂର୍ଣ୍ଣ କରନ୍ତୁ',
+  },
+  as: {
+    'nav.advisory': 'পৰামৰ্শ',
+    'nav.finance': 'বিত্ত',
+    'nav.market': 'বজাৰ',
+    'nav.community': 'সমাজ',
+    'nav.sustainability': 'স্থিতিশীলতা',
+    'nav.contact': 'যোগাযোগ',
+    'login.welcomeBack': 'পুনৰ স্বাগতম',
+    'login.authenticate': 'প্ৰোফাইল প্ৰমাণিত কৰক',
+    'login.skipIntro': 'ইণ্ট্ৰো এৰক',
+    'signup.farmer': 'কৃষক',
+    'signup.buyerCompany': 'ক্ৰেতা কোম্পানী',
+    'signup.continue': 'আগবাঢ়ক',
+    'buyer.companyName': 'কোম্পানীৰ নাম',
+    'buyer.phoneNumber': 'ফোন নম্বৰ',
+    'buyer.completeRegistration': 'কোম্পানীৰ নিবন্ধন সম্পূৰ্ণ কৰক',
+  },
+};
+
+export function translate(language: string, key: string): string {
+  const lang = resolveSupportedLanguage(language);
+  return translations[lang][key] ?? translations.en[key] ?? key;
+}
+
+export function resolveSupportedLanguage(language: string): SupportedLanguage {
+  if (language in translations) {
+    return language as SupportedLanguage;
+  }
+
+  return 'en';
+}
+
+export function translateTriplet(language: string, en: string, hi: string, bn: string): string {
+  const resolved = resolveSupportedLanguage(language);
+  if (resolved === 'hi') {
+    return hi;
+  }
+  if (resolved === 'bn') {
+    return bn;
+  }
+  if (resolved === 'en') {
+    return en;
+  }
+
+  return getRuntimeTranslatedText(resolved, en);
+}
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5

@@ -3,7 +3,11 @@ import { Inter, Noto_Sans, Noto_Sans_Bengali, Noto_Sans_Devanagari } from 'next/
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+<<<<<<< HEAD
 import { ChatbotWidget } from '@/components/ChatbotWidget'; // ✅ ENABLED
+=======
+import { ChatbotWidget } from '@/components/ChatbotWidget';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 import { LanguageProvider } from '@/components/LanguageProvider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -23,6 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="antialiased">
+<<<<<<< HEAD
       <body className={`${inter.variable} ${notoSans.variable} ${notoBengali.variable} ${notoDevanagari.variable}`}>
         <LanguageProvider>
           <Navbar />
@@ -36,8 +41,25 @@ export default function RootLayout({
           <ChatbotWidget />
 
           <Footer />
+=======
+      <body className={`${inter.variable} ${notoSans.variable} ${notoBengali.variable} ${notoDevanagari.variable} min-h-screen`}>
+        <LanguageProvider>
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            {/* Keep content clear of fixed navbar while allowing footer to stay at page bottom */}
+            <main className="flex-1 pt-16 lg:pt-20">
+              {children}
+            </main>
+            <ChatbotWidget />
+            <Footer />
+          </div>
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
         </LanguageProvider>
       </body>
     </html>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5

@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "ಸಲಹೆ",
+  "nav.finance": "ಹಣಕಾಸು",
+  "nav.market": "ಮಾರುಕಟ್ಟೆ",
+  "nav.community": "ಸಮುದಾಯ",
+  "nav.sustainability": "ಸ್ಥಿರತೆ",
+  "nav.contact": "ಸಂಪರ್ಕ",
+  "login.welcomeBack": "ಮತ್ತೆ ಸ್ವಾಗತ",
+  "login.authenticate": "ಪ್ರೊಫೈಲ್ ದೃಢೀಕರಿಸಿ",
+  "login.skipIntro": "ಪರಿಚಯವನ್ನು ಬಿಟ್ಟುಬಿಡಿ",
+  "signup.farmer": "ರೈತ",
+  "signup.buyerCompany": "ಖರೀದಿದಾರ ಕಂಪನಿ",
+  "signup.continue": "ಮುಂದುವರಿಸಿ",
+  "buyer.companyName": "ಕಂಪನಿಯ ಹೆಸರು",
+  "buyer.phoneNumber": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
+  "buyer.completeRegistration": "ಕಂಪನಿ ನೋಂದಣಿ ಪೂರ್ಣಗೊಳಿಸಿ",
+  "language.sampleWordsLabel": "ಮಾದರಿ ಪದಗಳು"
+}

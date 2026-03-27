@@ -1,6 +1,10 @@
 'use client';
 
 import { useLanguage } from '@/components/LanguageProvider';
+<<<<<<< HEAD
+=======
+import { translateTriplet } from '@/lib/translations';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
 const receivedOrders = [
   {
@@ -35,7 +39,11 @@ const incomingUpdates = [
 
 export default function BuyerOrdersPage() {
   const { language } = useLanguage();
+<<<<<<< HEAD
   const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
+=======
+  const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
   return (
     <div className="space-y-6">

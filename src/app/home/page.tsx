@@ -1,5 +1,6 @@
 'use client';
 
+<<<<<<< HEAD
 import { Suspense, lazy } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Leaf, Shield, TrendingUp, Users } from 'lucide-react';
@@ -8,6 +9,13 @@ import { useLanguage } from '@/components/LanguageProvider';
 
 // Lazy load 3D scene for performance
 const HeroScene = lazy(() => import('@/components/3d/HeroScene').then(mod => ({ default: mod.HeroScene })));
+=======
+import { motion } from 'framer-motion';
+import { ArrowRight, Leaf, TrendingUp, Users } from 'lucide-react';
+import Link from 'next/link';
+import { useLanguage } from '@/components/LanguageProvider';
+import { translateTriplet } from '@/lib/translations';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
 const features = [
   {
@@ -30,21 +38,33 @@ const features = [
 const metrics = [
   { value: '15,000+', label: 'Empowered Farmers' },
   { value: '98%', label: 'Yield Accuracy' },
+<<<<<<< HEAD
   { value: '$24M+', label: 'Farmer Income Generated' },
+=======
+  { value: '₹24 Cr+', label: 'Farmer Income Generated' },
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
   { value: '4.9/5', label: 'Average Trust Rating' },
 ];
 
 export default function Home() {
   const { language } = useLanguage();
+<<<<<<< HEAD
   const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+=======
+  const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
   return (
     <div className="relative w-full overflow-hidden bg-background">
       
       {/* Hero Section */}
+<<<<<<< HEAD
       <section className="relative h-[90vh] flex items-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+=======
+      <section className="relative h-[92vh] flex items-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full h-full">
           
           {/* Left: Text Content */}
@@ -89,6 +109,7 @@ export default function Home() {
             </motion.div>
           </div>
 
+<<<<<<< HEAD
           {/* Right: 3D Visualization */}
           <div className="hidden lg:block relative h-full w-full pointer-events-none">
             <motion.div style={{ y }} className="absolute inset-0 pointer-events-auto">
@@ -103,6 +124,26 @@ export default function Home() {
                 <HeroScene />
               </Suspense>
             </motion.div>
+=======
+          {/* Right: realistic image panel */}
+          <div className="hidden lg:block relative h-full w-full">
+            <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10">
+              <img
+                src="/images/home-hero.jpg"
+                alt="Germinating seeds and young crops in field"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent p-6">
+                <p className="text-xs uppercase tracking-[0.18em] text-white/80 font-semibold">
+                  {tx('Field Reality', 'खेत की वास्तविकता', 'মাঠের বাস্তবতা')}
+                </p>
+                <p className="mt-2 text-xl font-semibold text-white">
+                  {tx('Healthy germination decides season success', 'स्वस्थ अंकुरण ही सीज़न की सफलता तय करता है', 'সুস্থ অঙ্কুরোদ্গমই মৌসুমের সাফল্য নির্ধারণ করে')}
+                </p>
+              </div>
+            </div>
+
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
           </div>
 
         </div>
@@ -165,6 +206,10 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
         </div>
       </section>
       

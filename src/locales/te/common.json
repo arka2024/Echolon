@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "సలహా",
+  "nav.finance": "ఫైనాన్స్",
+  "nav.market": "మార్కెట్",
+  "nav.community": "సమాజం",
+  "nav.sustainability": "స్థిరత్వం",
+  "nav.contact": "సంప్రదింపు",
+  "login.welcomeBack": "మళ్లీ స్వాగతం",
+  "login.authenticate": "ప్రొఫైల్ ధృవీకరించండి",
+  "login.skipIntro": "ఇంట్రో దాటవేయి",
+  "signup.farmer": "రైతు",
+  "signup.buyerCompany": "కొనుగోలుదారు కంపెనీ",
+  "signup.continue": "కొనసాగించండి",
+  "buyer.companyName": "కంపెనీ పేరు",
+  "buyer.phoneNumber": "ఫోన్ నంబర్",
+  "buyer.completeRegistration": "కంపెనీ నమోదు పూర్తి చేయండి",
+  "language.sampleWordsLabel": "నమూనా పదాలు"
+}

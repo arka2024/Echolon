@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "ஆலோசனை",
+  "nav.finance": "நிதி",
+  "nav.market": "சந்தை",
+  "nav.community": "சமூகம்",
+  "nav.sustainability": "நிலைத்தன்மை",
+  "nav.contact": "தொடர்பு",
+  "login.welcomeBack": "மீண்டும் வரவேற்கிறோம்",
+  "login.authenticate": "சுயவிவரத்தை உறுதிசெய்",
+  "login.skipIntro": "அறிமுகத்தை தவிர்",
+  "signup.farmer": "விவசாயி",
+  "signup.buyerCompany": "வாங்குபவர் நிறுவனம்",
+  "signup.continue": "தொடரவும்",
+  "buyer.companyName": "நிறுவனப் பெயர்",
+  "buyer.phoneNumber": "தொலைபேசி எண்",
+  "buyer.completeRegistration": "நிறுவன பதிவு முடிக்கவும்",
+  "language.sampleWordsLabel": "மாதிரி சொற்கள்"
+}

@@ -5,6 +5,10 @@ import { DashboardLayout } from '@/components/DashboardLayout';
 import { motion } from 'framer-motion';
 import { Sun, Droplet, Sprout, TriangleAlert, CloudRain, Snowflake, Leaf, Search } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
+<<<<<<< HEAD
+=======
+import { resolveSupportedLanguage } from '@/lib/translations';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
 const AdvisoryScene = lazy(() => import('@/components/3d/AdvisoryScene').then(mod => ({ default: mod.AdvisoryScene })));
 
@@ -179,7 +183,13 @@ type AdvisoryText = {
 };
 
 function getAdvisoryText(language: string): AdvisoryText {
+<<<<<<< HEAD
   if (language === 'hi') {
+=======
+  const resolvedLanguage = resolveSupportedLanguage(language);
+
+  if (resolvedLanguage === 'hi') {
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
     return {
       title: 'सलाह डैशबोर्ड',
       subtitle: 'आपके फसल चक्र के लिए सटीक अंतर्दृष्टि।',
@@ -224,7 +234,11 @@ function getAdvisoryText(language: string): AdvisoryText {
     };
   }
 
+<<<<<<< HEAD
   if (language === 'bn') {
+=======
+  if (resolvedLanguage === 'bn') {
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
     return {
       title: 'পরামর্শ ড্যাশবোর্ড',
       subtitle: 'আপনার ফসল চক্রের জন্য নির্ভুল ইনসাইট।',
@@ -315,6 +329,10 @@ function getAdvisoryText(language: string): AdvisoryText {
 
 export default function AdvisoryPage() {
   const { language } = useLanguage();
+<<<<<<< HEAD
+=======
+  const resolvedLanguage = resolveSupportedLanguage(language);
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
   const text = getAdvisoryText(language);
   const [cropStage, setCropStage] = useState<CropStage>('vegetative');
   const [soilType, setSoilType] = useState('Detecting...');
@@ -415,6 +433,7 @@ export default function AdvisoryPage() {
   const humidity = weatherData?.current.humidity;
   const topRainChance = forecastRows.length > 0 ? Math.max(...forecastRows.map((item) => item.rainChance)) : 0;
   const weatherAlert = humidity && humidity >= 80
+<<<<<<< HEAD
     ? language === 'hi'
       ? 'आपके चुने हुए स्थान में आर्द्रता अधिक है। फफूंद रोग जोखिम पर नज़र रखें और देर शाम सिंचाई से बचें।'
       : language === 'bn'
@@ -429,6 +448,22 @@ export default function AdvisoryPage() {
       : language === 'hi'
         ? 'मौसम जोखिम मध्यम है। नियमित निगरानी और सिंचाई अनुसूची बनाए रखें।'
         : language === 'bn'
+=======
+    ? resolvedLanguage === 'hi'
+      ? 'आपके चुने हुए स्थान में आर्द्रता अधिक है। फफूंद रोग जोखिम पर नज़र रखें और देर शाम सिंचाई से बचें।'
+      : resolvedLanguage === 'bn'
+        ? 'আপনার নির্বাচিত স্থানে আর্দ্রতা বেশি। ছত্রাকজনিত ঝুঁকি নজরে রাখুন এবং সন্ধ্যায় সেচ এড়িয়ে চলুন।'
+        : 'High humidity in your selected location. Monitor fungal disease pressure and avoid late-evening irrigation.'
+    : topRainChance >= 70
+      ? resolvedLanguage === 'hi'
+        ? 'आने वाले दिनों में अधिक वर्षा की संभावना है। पोषक तत्व हानि कम करने के लिए उर्वरक को विभाजित खुराक में दें।'
+        : resolvedLanguage === 'bn'
+          ? 'আগামী দিনে বৃষ্টির সম্ভাবনা বেশি। পুষ্টি ক্ষতি কমাতে ভাগ করে সার প্রয়োগ করুন।'
+          : 'High rainfall probability in the upcoming days. Plan fertilizer split applications to reduce nutrient loss.'
+      : resolvedLanguage === 'hi'
+        ? 'मौसम जोखिम मध्यम है। नियमित निगरानी और सिंचाई अनुसूची बनाए रखें।'
+        : resolvedLanguage === 'bn'
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
           ? 'আবহাওয়ার ঝুঁকি মাঝারি। নিয়মিত নজরদারি ও সেচ সূচি বজায় রাখুন।'
           : 'Weather risk is moderate. Maintain regular scouting and irrigation schedule.';
 

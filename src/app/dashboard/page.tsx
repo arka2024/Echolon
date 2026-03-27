@@ -51,7 +51,11 @@ export default function DashboardPage() {
           {/* Revenue */}
           <div className="p-6 rounded-2xl bg-secondary shadow">
             <h2>Revenue</h2>
+<<<<<<< HEAD
             <p className="text-3xl">$24M</p>
+=======
+            <p className="text-3xl">₹24 Cr</p>
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
           </div>
 
         </div>

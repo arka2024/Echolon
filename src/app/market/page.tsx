@@ -5,6 +5,10 @@ import { DashboardLayout } from '@/components/DashboardLayout';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TrendingUp, Package, MapPin, Truck, Factory, Star, Phone, Mail, Globe, Loader2, CheckCircle2, RotateCw } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
+<<<<<<< HEAD
+=======
+import { translateTriplet } from '@/lib/translations';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
 type Region = 'All' | 'North' | 'South' | 'East' | 'West' | 'Central';
 type BuyerType = 'All' | 'Refinery' | 'Bulk Trader' | 'FMCG' | 'Export';
@@ -56,7 +60,11 @@ const BUYER_TYPES: BuyerType[] = ['All', 'Refinery', 'Bulk Trader', 'FMCG', 'Exp
 
 export default function MarketPage() {
   const { language } = useLanguage();
+<<<<<<< HEAD
   const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
+=======
+  const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
   const [isMounted, setIsMounted] = useState(false);
    const [region, setRegion] = useState<Region>('All');
    const [buyerType, setBuyerType] = useState<BuyerType>('All');

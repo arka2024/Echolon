@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "ପରାମର୍ଶ",
+  "nav.finance": "ଆର୍ଥିକ",
+  "nav.market": "ବଜାର",
+  "nav.community": "ସମୁଦାୟ",
+  "nav.sustainability": "ସ୍ଥିରତା",
+  "nav.contact": "ଯୋଗାଯୋଗ",
+  "login.welcomeBack": "ପୁଣିଥରେ ସ୍ୱାଗତ",
+  "login.authenticate": "ପ୍ରୋଫାଇଲ ସତ୍ୟାପନ କରନ୍ତୁ",
+  "login.skipIntro": "ଇନ୍ଟ୍ରୋ ଛାଡନ୍ତୁ",
+  "signup.farmer": "ଚାଷୀ",
+  "signup.buyerCompany": "କ୍ରେତା କମ୍ପାନୀ",
+  "signup.continue": "ଚାଲୁ ରଖନ୍ତୁ",
+  "buyer.companyName": "କମ୍ପାନୀ ନାମ",
+  "buyer.phoneNumber": "ଫୋନ ନମ୍ବର",
+  "buyer.completeRegistration": "କମ୍ପାନୀ ପଞ୍ଜିକରଣ ସମ୍ପୂର୍ଣ୍ଣ କରନ୍ତୁ",
+  "language.sampleWordsLabel": "ନମୁନା ଶବ୍ଦ"
+}

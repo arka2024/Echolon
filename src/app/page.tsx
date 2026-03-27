@@ -4,11 +4,16 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Leaf, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+<<<<<<< HEAD
+=======
+import { useRouter } from 'next/navigation';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { useLanguage } from '@/components/LanguageProvider';
 
 export default function IntroLoginPage() {
   const { t } = useLanguage();
+<<<<<<< HEAD
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,6 +21,122 @@ export default function IntroLoginPage() {
 
   // Auto-transition when video completes
   useEffect(() => {
+=======
+  const router = useRouter();
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [phone, setPhone] = useState('');
+  const [privateKey, setPrivateKey] = useState('');
+  const [keySent, setKeySent] = useState(false);
+  const [alertsEnabled, setAlertsEnabled] = useState(true);
+  const [weatherAlerts, setWeatherAlerts] = useState(true);
+  const [governmentAlerts, setGovernmentAlerts] = useState(true);
+  const [debugKey, setDebugKey] = useState<string | null>(null);
+  const [isSending, setIsSending] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleSendKey = async () => {
+    setIsSending(true);
+    setErrorMessage(null);
+    setStatusMessage(null);
+    setDebugKey(null);
+
+    try {
+      const response = await fetch('/api/sms/send-key', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phoneNumber: phone }),
+      });
+
+      const data = (await response.json().catch(() => ({}))) as {
+        error?: string;
+        keySent?: boolean;
+        debugKey?: string;
+        source?: 'twilio' | 'textbelt' | 'mock';
+        providerError?: string;
+      };
+
+      if (!response.ok || !data.keySent) {
+        setErrorMessage(data.error ?? 'Could not send private key. Please try again.');
+        return;
+      }
+
+      setKeySent(true);
+      setDebugKey(data.debugKey ?? null);
+      if (data.source === 'mock') {
+        setStatusMessage('SMS provider unavailable. Dev fallback key generated below.');
+      } else {
+        setStatusMessage('Private key sent by SMS. Enter it below to continue.');
+      }
+
+      if (data.providerError) {
+        setErrorMessage(`SMS provider issue: ${data.providerError}`);
+      }
+    } catch {
+      setErrorMessage('Network issue while sending key. Please try again.');
+    } finally {
+      setIsSending(false);
+    }
+  };
+
+  const subscribeAlerts = async (normalizedPhone: string) => {
+    const categories = [] as string[];
+    if (weatherAlerts) categories.push('weather');
+    if (governmentAlerts) categories.push('government');
+
+    await fetch('/api/sms/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        phoneNumber: normalizedPhone,
+        enabled: alertsEnabled && categories.length > 0,
+        categories,
+      }),
+    });
+  };
+
+  const handleVerify = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setIsVerifying(true);
+    setErrorMessage(null);
+    setStatusMessage(null);
+
+    try {
+      const response = await fetch('/api/sms/verify-key', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phoneNumber: phone, key: privateKey }),
+      });
+
+      const data = (await response.json().catch(() => ({}))) as {
+        ok?: boolean;
+        phoneNumber?: string;
+        error?: string;
+      };
+
+      if (!response.ok || !data.ok || !data.phoneNumber) {
+        setErrorMessage(data.error ?? 'Private key verification failed.');
+        return;
+      }
+
+      await subscribeAlerts(data.phoneNumber);
+      router.push('/home');
+    } catch {
+      setErrorMessage('Network issue while verifying key. Please try again.');
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
+  // Auto-transition when video completes
+  useEffect(() => {
+    setIsHydrated(true);
+
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
     const v = videoRef.current;
     if (v) {
       const handleEnded = () => setIsVideoPlaying(false);
@@ -106,6 +227,7 @@ export default function IntroLoginPage() {
             <h2 className="text-2xl font-bold text-center mb-2">{t('login.welcomeBack')}</h2>
             <p className="text-sm text-center text-muted-foreground mb-8">{t('login.enterCredentials')}</p>
 
+<<<<<<< HEAD
             <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); window.location.href = '/home'; }}>
               <div className="space-y-2">
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('login.farmAccess')}</label>
@@ -117,6 +239,29 @@ export default function IntroLoginPage() {
                   className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:ring-2 focus:ring-primary focus:outline-none transition-all" 
                   placeholder="name@farm.com" 
                 />
+=======
+            <form className="space-y-5" onSubmit={handleVerify}>
+              <div className="space-y-2">
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('login.farmAccess')}</label>
+                <div className="flex gap-2">
+                  <input 
+                  type="tel" 
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:ring-2 focus:ring-primary focus:outline-none transition-all"
+                  placeholder="+91 98765 43210" 
+                />
+                  <button
+                    type="button"
+                    onClick={handleSendKey}
+                    disabled={!isHydrated || isSending || !phone.trim()}
+                    className="px-4 py-3 rounded-xl border border-primary/30 bg-primary/10 text-primary text-sm font-semibold hover:bg-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSending ? 'Sending...' : keySent ? 'Resend' : 'Send Key'}
+                  </button>
+                </div>
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
               </div>
               
               <div className="space-y-2">
@@ -125,6 +270,7 @@ export default function IntroLoginPage() {
                    <Link href="#" className="text-xs font-medium text-primary hover:text-primary/80">{t('login.forgot')}</Link>
                 </div>
                 <input 
+<<<<<<< HEAD
                   type="password" 
                   required
                   value={password}
@@ -139,6 +285,67 @@ export default function IntroLoginPage() {
                 className="w-full py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all shadow-lg shadow-primary/20 mt-4"
               >
                 <span>{t('login.authenticate')}</span>
+=======
+                  type="text" 
+                  required
+                  value={privateKey}
+                  onChange={(e) => setPrivateKey(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:ring-2 focus:ring-primary focus:outline-none transition-all" 
+                  placeholder="Enter 6-digit private key" 
+                />
+              </div>
+
+              <div className="space-y-2 rounded-xl border border-border/60 bg-secondary/20 p-3">
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">SMS Adverse Alerts</label>
+                <div className="flex items-center gap-2 text-sm">
+                  <input
+                    id="alertsEnabled"
+                    type="checkbox"
+                    checked={alertsEnabled}
+                    onChange={(e) => setAlertsEnabled(e.target.checked)}
+                    className="h-4 w-4"
+                  />
+                  <label htmlFor="alertsEnabled">Enable alert messages</label>
+                </div>
+                <div className="flex items-center gap-4 text-sm">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={weatherAlerts}
+                      onChange={(e) => setWeatherAlerts(e.target.checked)}
+                      disabled={!alertsEnabled}
+                      className="h-4 w-4"
+                    />
+                    Weather
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={governmentAlerts}
+                      onChange={(e) => setGovernmentAlerts(e.target.checked)}
+                      disabled={!alertsEnabled}
+                      className="h-4 w-4"
+                    />
+                    Government
+                  </label>
+                </div>
+              </div>
+
+              {statusMessage && <p className="text-xs text-emerald-600">{statusMessage}</p>}
+              {errorMessage && <p className="text-xs text-red-600">{errorMessage}</p>}
+              {debugKey && (
+                <p className="text-xs text-amber-600">
+                  Dev key preview: {debugKey}
+                </p>
+              )}
+
+              <button 
+                type="submit"
+                disabled={isVerifying || !keySent}
+                className="w-full py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all shadow-lg shadow-primary/20 mt-4 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <span>{isVerifying ? 'Verifying...' : t('login.authenticate')}</span>
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
             </form>

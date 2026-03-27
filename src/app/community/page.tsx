@@ -15,6 +15,10 @@ import {
    ShieldCheck,
 } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageProvider';
+<<<<<<< HEAD
+=======
+import { translateTriplet } from '@/lib/translations';
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
 const schemes = [
    {
@@ -69,7 +73,11 @@ const stories = [
 
 export default function CommunityPage() {
    const { language } = useLanguage();
+<<<<<<< HEAD
    const tx = (en: string, hi: string, bn: string) => (language === 'hi' ? hi : language === 'bn' ? bn : en);
+=======
+   const tx = (en: string, hi: string, bn: string) => translateTriplet(language, en, hi, bn);
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
    const whatsappCommunityLink =
       process.env.NEXT_PUBLIC_WHATSAPP_COMMUNITY_URL ||
       'https://chat.whatsapp.com/';
@@ -213,7 +221,11 @@ export default function CommunityPage() {
             >
                <div className="h-[23rem] w-full overflow-hidden relative">
                  <img
+<<<<<<< HEAD
                     src="https://images.news18.com/ibnlive/uploads/2024/03/pm-modi-file-pic-2024-03-6f3185efd757d57b4f95c37949a489e8.jpg"
+=======
+                    src="/images/community-modi.jpg"
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
                     alt="Prime Minister Narendra Modi at a government event"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                  />

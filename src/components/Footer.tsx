@@ -6,6 +6,18 @@ import { Globe, Leaf } from 'lucide-react';
 
 export function Footer() {
   const pathname = usePathname();
+<<<<<<< HEAD
+=======
+  const hasSidebarLayout = [
+    '/dashboard',
+    '/advisory',
+    '/finance',
+    '/market',
+    '/community',
+    '/sustainability',
+    '/settings',
+  ].some((route) => pathname.startsWith(route));
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
   // Hide Footer on the intro/login and signup pages
   if (pathname === '/' || pathname === '/signup' || pathname.startsWith('/buyer')) {
@@ -13,6 +25,7 @@ export function Footer() {
   }
 
   return (
+<<<<<<< HEAD
     <footer className="border-t border-border bg-background py-12 lg:py-16">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -58,6 +71,29 @@ export function Footer() {
             <Link href="#" className="hover:text-foreground border-b border-transparent hover:border-foreground pb-0.5">Privacy Policy</Link>
             <Link href="#" className="hover:text-foreground border-b border-transparent hover:border-foreground pb-0.5">Trust Center</Link>
             <Link href="#" className="hover:text-foreground border-b border-transparent hover:border-foreground pb-0.5">Sustainability Report</Link>
+=======
+    <footer className={`mt-auto border-t border-border/80 bg-background/95 py-3 ${hasSidebarLayout ? 'md:ml-64' : ''}`}>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-2 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-2">
+            <Link href="/home" className="font-semibold text-foreground">TerraForge Systems</Link>
+            <span className="hidden md:inline">|</span>
+            <span>Bhubaneswar, Odisha</span>
+            <span className="hidden md:inline">|</span>
+            <span>+91 674 400 5050</span>
+          </div>
+
+          <div className="flex items-center gap-4 uppercase tracking-wider">
+            <Link href="#" className="hover:text-foreground">Privacy</Link>
+            <Link href="#" className="hover:text-foreground">Trust</Link>
+            <Link href="#" className="hover:text-foreground">Report</Link>
+          </div>
+
+          <div className="flex items-center gap-2 md:justify-end">
+            <Globe className="h-3.5 w-3.5" />
+            <Leaf className="h-3.5 w-3.5" />
+            <span>© 2026</span>
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
           </div>
         </div>
       </div>

@@ -1,0 +1,18 @@
+{
+  "nav.advisory": "सल्ला",
+  "nav.finance": "वित्त",
+  "nav.market": "बाजार",
+  "nav.community": "समुदाय",
+  "nav.sustainability": "शाश्वतता",
+  "nav.contact": "संपर्क",
+  "login.welcomeBack": "पुन्हा स्वागत",
+  "login.authenticate": "प्रोफाइल सत्यापित करा",
+  "login.skipIntro": "परिचय वगळा",
+  "signup.farmer": "शेतकरी",
+  "signup.buyerCompany": "खरेदीदार कंपनी",
+  "signup.continue": "पुढे जा",
+  "buyer.companyName": "कंपनीचे नाव",
+  "buyer.phoneNumber": "फोन नंबर",
+  "buyer.completeRegistration": "कंपनी नोंदणी पूर्ण करा",
+  "language.sampleWordsLabel": "उदाहरण शब्द"
+}

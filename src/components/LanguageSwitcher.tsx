@@ -24,8 +24,14 @@ const defaultOptions: LanguageOption[] = [
 ];
 
 export function LanguageSwitcher({ className = '', compact = false }: LanguageSwitcherProps) {
+<<<<<<< HEAD
   const { language, setLanguage } = useLanguage();
   const [options, setOptions] = useState<LanguageOption[]>(defaultOptions);
+=======
+  const { language, setLanguage, t } = useLanguage();
+  const [options, setOptions] = useState<LanguageOption[]>(defaultOptions);
+  const [sampleWordsByLanguage, setSampleWordsByLanguage] = useState<Record<string, string[]>>({});
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
 
   useEffect(() => {
     const load = async () => {
@@ -49,11 +55,45 @@ export function LanguageSwitcher({ className = '', compact = false }: LanguageSw
     void load();
   }, []);
 
+<<<<<<< HEAD
+=======
+  useEffect(() => {
+    const loadSampleWords = async () => {
+      if (sampleWordsByLanguage[language]) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/languages/seed-words?code=${encodeURIComponent(language)}`, { cache: 'no-store' });
+        if (!response.ok) {
+          return;
+        }
+
+        const payload = (await response.json()) as { wordsByLanguage?: Record<string, string[]> };
+        if (payload.wordsByLanguage && typeof payload.wordsByLanguage === 'object') {
+          setSampleWordsByLanguage((prev) => ({ ...prev, ...payload.wordsByLanguage }));
+        }
+      } catch {
+        // Keep sample words empty on failure
+      }
+    };
+
+    void loadSampleWords();
+  }, [language, sampleWordsByLanguage]);
+
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
   const selectedLabel = useMemo(() => {
     const found = options.find((item) => item.code === language);
     return found?.englishName ?? 'English';
   }, [options, language]);
 
+<<<<<<< HEAD
+=======
+  const selectedSampleWords = useMemo(() => {
+    return sampleWordsByLanguage[language] ?? [];
+  }, [sampleWordsByLanguage, language]);
+
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
   return (
     <label className={`inline-flex items-center gap-2 rounded-lg border border-border bg-background/80 px-2.5 py-1.5 text-xs text-foreground ${className}`}>
       <Languages className="h-4 w-4 text-primary" />
@@ -70,6 +110,14 @@ export function LanguageSwitcher({ className = '', compact = false }: LanguageSw
           </option>
         ))}
       </select>
+<<<<<<< HEAD
+=======
+      {!compact && selectedSampleWords.length > 0 && (
+        <span className="hidden xl:inline text-[10px] text-muted-foreground">
+          {t('language.sampleWordsLabel')}: {selectedSampleWords.join(', ')}
+        </span>
+      )}
+>>>>>>> 723cd574cea17f27ddc7f730aa69a1b7c17cf1c5
     </label>
   );
 }
